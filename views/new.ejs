@@ -1,0 +1,45 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar') %>
+
+
+<div class="row recipe-form">
+    <div class="col-lg-6 offset-lg-3">
+        <h2 class="text-center mb-4">Add New Recipe</h2>
+
+        <form action="/recipes" method="post">
+            <!-- Recipe Name -->
+            <div class="form-group">
+                <label for="recipeName">Recipe Name</label>
+                <input type="text" class="form-control" id="recipeName" name="name" required>
+            </div>
+
+            <!-- Recipe Category -->
+            <div class="form-group">
+                <label for="recipeCategory">Recipe Category</label>
+                <input type="text" class="form-control" id="recipeCategory" name="category" required>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="form-group">
+                <label for="recipeIngredients">Ingredients</label>
+                <textarea class="form-control" id="recipeIngredients" name="ingredients" rows="3" required></textarea>
+            </div>
+
+            <!-- Instructions -->
+            <div class="form-group">
+                <label for="recipeInstructions">Instructions</label>
+                <textarea class="form-control" id="recipeInstructions" name="instructions" rows="5" required></textarea>
+            </div>
+
+            <!-- Image Address (URL) Input -->
+            <div class="form-group">
+                <label for="recipeImage">Recipe Image (URL)</label>
+                <input type="url" class="form-control" id="recipeImage" name="image" placeholder="Enter image URL" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mt-5">Add Recipe</button>
+        </form>
+    </div>
+</div>

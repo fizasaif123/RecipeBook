@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar') %>
+
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">SEARCHED RECIPIES</h1>
+
+    <div class="row">
+        <% for(let r of filteredRecipes) {%>
+        <div class="col-lg-6">
+            <div class="card recipe-card">
+                <img src="<%=r.image%>" class="card-img-top" alt="<%=r.name%>">
+                <div class="card-body recipe-details">
+                    <a href="/recipes/<%= r.id %>"class="card-title recipe-title" ><%=r.name%></a>
+                    <p class="card-text recipe-category">
+                        <span><%=r.category%></span>
+                    </p>
+                    <p class="card-text recipe-ingredients"><strong>Ingredients:</strong> <%=r.ingredients%></p>
+                    <p class="card-text recipe-instructions"><strong>Instructions:</strong> <%=r.instructions%></p>
+                </div>
+            </div>
+        </div>
+        <% }%>
+    </div>
+</div>
+    
+</body>
+</html>

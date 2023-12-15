@@ -1,0 +1,61 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar') %>
+
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+
+    .recipe-details {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .recipe-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .recipe-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .recipe-category {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .recipe-ingredients,
+    .recipe-instructions {
+        margin-bottom: 15px;
+    }
+</style>
+
+
+
+<div class="container mt-4">
+    <div class="recipe-details">
+        <img src="<%= recipe.image %>" class="recipe-image" alt="<%= recipe.name %>">
+        <h2 class="recipe-title"><%= recipe.name %></h2>
+        <p class="recipe-category">
+            <span class=""><%= recipe.category %></span>
+        </p>
+        <p class="recipe-ingredients"><strong>Ingredients:</strong> <%= recipe.ingredients%></p>
+        <p class="recipe-instructions"><strong>Instructions:</strong> <%= recipe.instructions %></p>
+
+        <a href="/recipes/<%= recipe.id%>/edit">Edit Recipe</a>
+
+        <form method="POST" action="/recipes/<%= recipe.id %>?_method=DELETE">
+            <button class="btn btn-primary mt-5">Delete</button>
+        </form>
+
+
+
+    </div>
+</div>

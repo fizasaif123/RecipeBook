@@ -1,0 +1,63 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar') %>
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .recipe-card {
+        margin-bottom: 20px;
+    }
+
+    .recipe-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .recipe-details {
+        padding: 15px;
+    }
+
+    .recipe-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .recipe-category {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .recipe-ingredients,
+    .recipe-instructions {
+        margin-bottom: 15px;
+    }
+
+    .badge-category {
+        font-size: 16px;
+    }
+</style>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">ALL RECIPES</h1>
+
+    <div class="row">
+        <% for(let r of recipes) {%>
+        <div class="col-lg-6">
+            <div class="card recipe-card">
+                <img src="<%=r.image%>" class="card-img-top" alt="<%=r.name%>">
+                <div class="card-body recipe-details">
+                    <a href="/recipes/<%= r.id %>"class="card-title recipe-title" ><%=r.name%></a>
+                    <p class="card-text recipe-category">
+                        <span><%=r.category%></span>
+                    </p>
+                    <p class="card-text recipe-ingredients"><strong>Ingredients:</strong> <%=r.ingredients%></p>
+                    <p class="card-text recipe-instructions"><strong>Instructions:</strong> <%=r.instructions%></p>
+                </div>
+            </div>
+        </div>
+        <% }%>
+    </div>
+</div>
